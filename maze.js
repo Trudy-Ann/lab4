@@ -15,6 +15,7 @@
    });
 }*/
 window.onload = function() {
+    var yousuck = false;
     var wall1 = document.getElementById("boundary1");
      wall1.addEventListener("mouseover", function(){
      this.setAttribute("class", "boundary youlose");});
@@ -28,9 +29,38 @@ window.onload = function() {
 
 
 function overBoundary() {
+    yousuck = true;
+    alert('you lose!');
     var boundary =  document.querySelectorAll (".boundary");
     for (var i = 0; i < boundary.length; i++) {
-        boundary[i].style.backgroundColor = "#ff8888";
+        boundary[i].setAttribute("class", "boundary youlose");
     }
 }
+
+var mazeEnd = document.getElementById('end');
+mazeEnd.addEventListener('mouseover',function(){
+    if (yousuck == false){
+    alert('You Win!');
+    }
+})
+
+/*function overstart() {
+
+    var start = document.getElementById("end");
+    start.addEventListener("mouseover", function(){
+     this.setAttribute("class", "end youlose");});
+    for (var i = 0; i < start.length; i++) {
+        start[i].removeClassName("youlose");
+    }*/
+
+
+/*function overEnd() {
+    if(loser) {
+        window.alert("Sorry, you lost. :[");
+    } else {
+        window.alert("You win! :]");
+    }*/
+
+
+
 }
