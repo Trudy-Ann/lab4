@@ -1,10 +1,12 @@
  var youlose = false;
+var gameStart = false;
 
 window.onload = function() {
    
     
     document.getElementById("start").addEventListener ('click', function() {
-
+    youlose = false;    
+    gameStart = true;
     var wall1 = document.getElementById("boundary1");
      wall1.addEventListener("mouseover", function(){
      this.setAttribute("class", "boundary youlose");});
@@ -12,9 +14,9 @@ window.onload = function() {
     
      
       var wall2 = document.querySelectorAll(".boundary");
-      for (x = 0; x < wall2.length; x++) {
-          wall2[x].setAttribute("class", "boundary");
-         /* document.getElementById('status').innerHTML = "Click S to start again"*/
+      for (i = 0; i < wall2.length; i++) {
+          wall2[i].setAttribute("class", "boundary");
+         document.getElementById("status").innerHTML= "Move your mouse over the 'S' to begin."
       }
     
         for (var i = 0; i < wall2.length; i++) {
@@ -53,8 +55,8 @@ function startClick() {
 function overEnd() {
     if(youlose) {
         document.getElementById('status').innerHTML = "Sorry, you lose, click S try again";
-    } else {
-         document.getElementById('status').innerHTML = "Congratulations you win";
+    }else if(youlose === false && gameStart) {
+         document.getElementById('status').innerHTML = "Congratulations you win, Click S to try again";
     }
 
 }
