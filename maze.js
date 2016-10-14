@@ -1,66 +1,60 @@
-/*window.onload= wallboundary;
+ var youlose = false;
 
-
- function wallboundary(){
-
-    // $("boundary1").style.backgroundColor = "#ff8888";
-   var wall = document.getElementById("boundary1");
-   
-   wall.addEventListener("mouseover", function(){
-       this.setAttribute("class", "boundary youlose");
-       
-       
-       document.querySelectorAll('.boundary');
-       
-   });
-}*/
 window.onload = function() {
-    var yousuck = false;
+   
+    
+    document.getElementById("start").addEventListener ('click', function() {
+
     var wall1 = document.getElementById("boundary1");
      wall1.addEventListener("mouseover", function(){
      this.setAttribute("class", "boundary youlose");});
      
-      var wall2 = document.querySelectorAll(".boundary");
+    
      
-    for (var i = 0; i < wall2.length; i++) {
-        wall2[i].onmouseover = overBoundary;
+      var wall2 = document.querySelectorAll(".boundary");
+      for (x = 0; x < wall2.length; x++) {
+          wall2[x].setAttribute("class", "boundary");
+      }
+    
+        for (var i = 0; i < wall2.length; i++) {
+            wall2[i].onmouseover = overBoundary;
     }
+    });
 
+    var end = document.getElementById("end");
+    end.addEventListener("mouseover",function(){
+        if (youlose == false){  
+            overEnd();
+        }
+    }); 
+  
 
 
 function overBoundary() {
-    yousuck = true;
-    alert('you lose!');
+    youlose = true;
+    /*alert('you lose!');*/
     var boundary =  document.querySelectorAll (".boundary");
     for (var i = 0; i < boundary.length; i++) {
         boundary[i].setAttribute("class", "boundary youlose");
     }
+    overEnd (); stop();
 }
 
-var mazeEnd = document.getElementById('end');
-mazeEnd.addEventListener('mouseover',function(){
-    if (yousuck == false){
-    alert('You Win!');
-    }
-})
 
-/*function overstart() {
+function startClick() {
+    var boundary = document.getElementsByClassName("boundary");
+    for (var i = 0;i<boundary.length - 1; i++) {
+         boundary[i].setAttribute("class", "boundary")
+          }
+    document.getElementById("status").innerHTML= "Move your mouse over the 'S' to begin."
+}     
 
-    var start = document.getElementById("end");
-    start.addEventListener("mouseover", function(){
-     this.setAttribute("class", "end youlose");});
-    for (var i = 0; i < start.length; i++) {
-        start[i].removeClassName("youlose");
-    }*/
-
-
-/*function overEnd() {
-    if(loser) {
-        window.alert("Sorry, you lost. :[");
+function overEnd() {
+    if(youlose) {
+        alert("Sorry, you lose. Try Again");
     } else {
-        window.alert("You win! :]");
-    }*/
+        alert("You win");
+    }
 
-
-
+}
 }
