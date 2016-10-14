@@ -14,6 +14,7 @@ window.onload = function() {
       var wall2 = document.querySelectorAll(".boundary");
       for (x = 0; x < wall2.length; x++) {
           wall2[x].setAttribute("class", "boundary");
+         /* document.getElementById('status').innerHTML = "Click S to start again"*/
       }
     
         for (var i = 0; i < wall2.length; i++) {
@@ -51,9 +52,9 @@ function startClick() {
 
 function overEnd() {
     if(youlose) {
-        alert("Sorry, you lose. Try Again");
+        document.getElementById('status').innerHTML = "Sorry, you lose, click S try again";
     } else {
-        alert("You win");
+         document.getElementById('status').innerHTML = "Congratulations you win";
     }
 
 }
