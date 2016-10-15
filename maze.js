@@ -43,6 +43,20 @@ function overBoundary() {
     overEnd (); stop();
 }
 
+document.getElementsByTagName("BODY")[0]. addEventListener('mouseover', function (event){
+    var x = event.clientX;
+    var y = event.clienty;
+    var divLEFT = document.getElementById('maze'). offsetLeft;
+    var divTOP = document.getElementById('maze'). offsetTop;
+    var divHEIGHT = document.getElementById('maze'). offsetHeight;
+    var divWIDTH = document.getElementById('maze'). offsetWidth;
+    
+    if (x < divLEFT || y < divTOP || y > (divTOP + mazeHEIGHT) ) {
+        overBoundary();
+        console.log ("hey")
+    }
+    
+});
 
 function startClick() {
     var boundary = document.getElementsByClassName("boundary");
